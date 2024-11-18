@@ -1,7 +1,7 @@
 function getHumanChoice(){
-   let player1 = prompt("Rack Paper Scissors. Choose one");
-   let myString= player1. toLowerCase()
-return myString;
+    //Get it by addlistener Button
+    
+    return myString;
 }
 function getComputerChoice() {
    let computer = Math.floor(Math.random() * 3);
@@ -46,7 +46,8 @@ function playgame(){
     let hScore=0;
     let cScore=0;
     let winCheck = null;
-    for (let index = 0; index < 5; index++) {
+    let exit= true;
+     while(exit){
          winCheck = playround(cScore,hScore);
         if(winCheck){
             hScore++;
