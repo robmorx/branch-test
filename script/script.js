@@ -1,6 +1,9 @@
-function getHumanChoice(){
+const scissors="scissors"
+const paper="paper"
+const rock="rock"
+function getHumanChoice(choice){
     //Get it by addlistener Button
-    
+    let myString=choice;
     return myString;
 }
 function getComputerChoice() {
@@ -22,11 +25,15 @@ function getComputerChoice() {
 }
 function playround(computerScore,humanScore){
     //run the getter functions
+    const container = document.querySelector("#container");
+    const content = document.createElement("div");
     let computerChoice= getComputerChoice();
-    let humanChoice = getHumanChoice();
+    let humanChoice = myString;
+    let whoWins=false;
     //the logic of the program. Who wins
     if (humanChoice==computerChoice){
-        console.log("Draw. "+humanChoice+" draws against "+computerChoice);
+        //console.log(;
+        content.textContent = "Draw. "+humanChoice+" draws against "+computerChoice;
         //Player wins checking
         return null
     }else if (
@@ -34,13 +41,14 @@ function playround(computerScore,humanScore){
         (humanChoice == "rock" && computerChoice == "scissors") ||
         (humanChoice == "paper" && computerChoice == "rock")
       ) {
-        console.log("Human wins. "+humanChoice+" beats "+computerChoice);
-        return true;
+        content.textContent ="Human wins. "+humanChoice+" beats "+computerChoice;
+        whoWins=true;
     }else{
-        console.log("Human loses. "+computerChoice+" beats "+humanChoice);
-       return false;
+        content.textContent ="Human loses. "//+computerChoice+" beats "+humanChoice;
+       whoWins=false;
     }
- 
+    container.appendChild(content);
+    return whoWins
 }
 function playgame(){
     let hScore=0;
